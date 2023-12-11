@@ -1,0 +1,31 @@
+{%extends 'base.html' %}
+{%load static%}
+
+{%block content%}
+<div class="each-club-info h-100 bg-primary">
+    <div class="inf">
+        <div class="each-club-info-img w-100 d-flex justify-content-center mt-3">
+            <img style="width: 500px;" src="{{club_info.photo.url}}" alt="">
+        </div>
+        <div class="desciption">
+            <p class="text-white mono px-3 mt-2" style="font-size: 16px;">{{club_info.description}}</p>
+        </div>
+        <div class="club-event mx-3">
+            <a href="{%url 'upcoming_events' club_info.club.id%}" class="btn btn-primary">Upcoming Events</a>
+        </div>
+    </div>
+    <div class="achievements">
+        {% for ach in achievements%}
+         <div class="achieved d-flex mb-3">
+            <img style="width: 18vw; height: 24vh;" src="{{ach.photo.url}}" alt="">
+            <div class="mx-1">
+                <h5 class="mono text-white" style="font-size: 0.9rem;">{{ach.title}}</h5>
+                <p class="mono text-white" style="font-size: 0.7rem;">{{ach.description}}</p>
+                <h6 class="mono text-white" style="font-size: 0.97rem;">Date: {{ach.achieved_date}}</h6>
+            </div>
+         </div>
+         <hr class="text-white">
+        {%endfor%}
+    </div>
+</div>
+{%endblock content%}

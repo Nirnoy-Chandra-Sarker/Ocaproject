@@ -1,0 +1,29 @@
+{% extends 'base.html'%}
+<!-- {% load static %} -->
+
+{%block title%} Password Reset {%endblock title%}
+
+
+{%block content%}
+<div class="container custom-register-container">
+    <h1 class="title">Sign Up</h1>
+    {% if messages %}
+    {% for message in messages %}
+    {% if message.tags %}<h4 class="bg-{{message.tags}} text-center py-2 border border-{{message.tags}} rounded">
+        {{message}}</h4>{% endif %}
+    {% endfor %}
+    {% endif %}
+    <form class="form-signin" method="post">
+        {%csrf_token%}
+        <div class="text-center mb-4">
+            <div class="form-label-group">
+                <label class="text-white" for="inputPassword">Enter Your New Password</label>
+                <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password"
+                    required>
+            </div>
+            <button class="btn btn-lg btn-primary signinbtn" type="submit">Confirm</button>
+            <p class="mt-5 mb-3 text-muted text-center"></p>
+        </div>
+    </form>
+</div>
+{%endblock content%}

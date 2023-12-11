@@ -1,0 +1,23 @@
+{%extends 'base.html' %}
+
+{%block content%}
+    <div class="container d-flex-sm justify-content-evenly  shadow-lg my-5 bg-light">
+        <div class="m-5 d-flex flex-column align-items-wvwnly">
+            {%if user.photo.url %}
+            <img class="mx-auto my-3" style="height: 200px; width: 200px; object-fit: cover; border-radius: 50%"
+                src="{{ user.photo.url }}" alt="" />
+            {%endif%}
+            <h3 class="mx-2 mono">Name: {{user.name}}</h3>
+            <br>
+            <h3 class="mx-2 mono">Email: {{user.email}}</h3>
+            <br>
+            <h3 class="mx-2 mono">Phone: {{user.phone_number}}</h3>
+            <br>
+            {%if user.is_student %}
+            <a class="btn btn-success m-2" href="{% url 'complete_profile'%}">Complete Profile</a>
+            {%endif%}
+            <a class="btn btn-success m-2" href="{% url 'user_update' user.id%}">Update Profile</a>
+            <a class="btn btn-warning m-2" href="{% url 'logout'%}">LOGOUT</a>
+        </div>
+    </div>
+{%endblock content%}

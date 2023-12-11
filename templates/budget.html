@@ -1,0 +1,104 @@
+{%extends 'base.html'%}
+
+{%block content%}
+
+<div class="container-fluid text-white d-flex justify-content-between align-items-start">
+    <div class="form-div my-4">
+        <form action="" method="post" class="m-auto">
+            {%csrf_token%}
+            {{form.as_p}}
+            <button type="submit" class="btn btn-lg btn-warning">Confirm</button>
+        </form>
+    </div>
+
+    <div class="history w-50 my-4">
+        {%if budget.rp < 20%}
+        <h1 class="bg-danger text-center p-2">Your Remaining Budget is Below 20%</h1>
+        {%endif%}
+        {% if messages %}
+        {% for message in messages %}
+        {% if message.tags %}<h4 class="bg-{{message.tags}} text-center py-2 border border-{{message.tags}} rounded">{{message}}</h4>{% endif %}
+        {% endfor %}
+        {% endif %}
+        <h2 class="text-center">Transaction History</h2>
+        <h1></h1>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Count</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Amount(TK)</th>
+                    <th scope="col">Clubname</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for transaction in transactions%}
+                <tr>
+                    <th scope="row">{{forloop.counter}}</th>
+                    <td>{{transaction.date}}</td>
+                    <td>{{transaction.transaction}}</td>
+                    <td>{{transaction.club.name}}</td>
+                </tr>
+                {%endfor%}
+
+            </tbody>
+        </table>
+    </div>
+
+
+    <div style="width: 30rem; height: 80vh;" class="d-flex flex-column">
+        <div class="row my-4">
+            <div class="col-xl-10">
+                <div class="card border-left-success shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                    Assigned Budget</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{budget.assigned_budget}} TK
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xl-10">
+                <div
+                    class="card border-left-info shadow h-100 py-2 {% if budget.rp > 70 %}bg-success{% elif budget.rp > 40 %}bg-warning{% else %}bg-danger{% endif %}">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-white text-uppercase mb-1">
+                                    <span class="d-flex justify-content-between">
+                                        <h5>Remaining
+                                            Budget </h5>
+                                        <h4>{{budget.rp|floatformat:0}}%</h4>
+                                    </span>
+                                </div>
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col-auto">
+                                        <div class="h5 mb-0 mr-3 font-weight-bold text-white">
+                                            {{budget.remaining_budget}} TK</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+{%endblock content%}

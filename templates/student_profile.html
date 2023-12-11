@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{%block title%}Profile{%endblock title%}
+
+{%block content%}
+<div class="container d-flex-sm justify-content-evenly  shadow-lg my-5">
+    <div class="m-5 p-5 d-flex flex-column bg-light">
+        <div>
+            <h1 class="mono text-center">{{student.name}}'s Profile</h1>
+            {%if student.photo.url%}
+            <img class="profile-img my-3" src="{{student.photo.url}}" alt="">
+            {%endif%}
+            <hr>
+            <h3 class="mx-2 mono">Name: {{student.name}}</h3>
+            <hr>
+            <h3 class="mx-2 mono">Student ID: {{profile.std_id}}</h3>
+            <hr>
+            <h3 class="mx-2 mono">Phone: {{student.phone_number}}</h3>
+            <hr>
+            <h3 class="mx-2 mono">Department: {{profile.department}}</h3>
+            <hr>
+            <h3 class="mx-2 mono">Semester: {{profile.semester}}{{profile.add_year}}</h3>
+            <br>
+        </div>
+        {%if not profile.std_id%}
+        <a href="{% url 'complete_profile' %}" class="btn btn-warning align-self-center"> Complete Profile</a>
+        {%endif%}
+    </div>
+</div>
+{%endblock content%}

@@ -1,0 +1,215 @@
+:root {
+    --homepage-background-color: #001C30;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--homepage-background-color);
+}
+
+.mono {
+    font-family: 'Roboto Mono', monospace;
+}
+
+/* For Home Page  */
+
+
+/* .home-container {
+    position: relative;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.home-container ::before{
+    content: '';
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    opacity: 0.1;
+    z-index: -1;
+} */
+
+/* For Home Page  */
+
+
+/* For Profile Page */
+.profile-img {
+    width: 300px;
+}
+
+/* For Profile Page */
+
+/* Club Dashboard */
+.my-wrapper {
+    background-color: var(--homepage-background-color);
+    height: 92vh;
+}
+
+.card-img {
+    width: 200px;
+    height: 250px;
+    object-fit: cover;
+}
+
+.budget-form {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.budget-form>div {
+    width: 150px;
+    height: 28px;
+}
+
+.budget-form>div>p>input {
+    width: 150px;
+    height: 30px;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding-left: 5px;
+
+}
+
+/* Club Dashboard */
+
+/* Clubs-Info */
+
+.club-info-cards{
+    height: 40vh;
+    background-color: rgba(240, 255, 255, 0.495);
+    margin: 20px 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.club-info{
+    width: 60vw;
+}
+
+.club-image{
+    width: 30vw;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.club-image img{
+    width: 470px;
+    object-fit: cover;
+
+}
+
+/* Clubs-Info */
+
+/* Each Club Info */
+.each-club-info{
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+
+}
+.each-club-info > .inf{
+    height: 93vh;
+    background-color: #001C30;
+    /* background-color: red; */
+}
+.each-club-info > .achievements{
+    height: 100%;
+    background-color: var(--homepage-background-color);
+}
+
+.achieved{
+    height: 25vh;
+}
+.achieved
+
+/* Each Club Info */
+
+/* Assign Room */
+.my-room-container {
+    background-color: var(--homepage-background-color);
+    height: 100vh;
+}
+
+.roombookform>p>label {
+    color: white;
+    font-family: monospace;
+}
+
+/* Assign Room */
+
+.custom-register-container {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    padding: 50px 20px;
+    transform: translate(-50%, -50%);
+    margin-top: 100px;
+    background-color: white;
+    border: none;
+    border-radius: 20px;
+    box-shadow: -5px -5px 5px rgba(6, 7, 4, 0.635) inset, 5px 5px 5px rgba(6, 7, 4, 0.635) inset;
+
+}
+
+.st-rgr{
+    border-radius: 20px;
+}
+
+.custom-height {
+    height: 100vh;
+}
+
+.custom-register-container>h1 {
+    text-align: center;
+    color: white;
+}
+
+.signinbtn {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.my-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.register-btn {
+    align-self: center;
+    padding: 8px;
+    background-color: green;
+    border: none;
+    border-radius: 5px;
+    height: 45px;
+    width: 90px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.register-btn:hover {
+    color: white;
+    background-color: orange;
+}
+
+
+.carousel-img{
+    position: relative;
+    top: 50%;
+    width:85vw;
+    height: 80vh;
+    margin: 0px auto;
+}
+
+.img-text{
+    position: absolute;
+    bottom: 0%;
+    left:10%;
+    color: white;
+}

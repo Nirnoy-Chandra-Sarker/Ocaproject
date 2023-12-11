@@ -1,0 +1,20 @@
+{%extends 'base.html'%}
+
+{%block content%}
+<div class="container event-container">
+    {%for event in events%}
+    <div class="event-card m-3">
+        <div class="title">
+            <h3 class="mono">Event Name</h3>
+            <a href="{% url 'event_details' event.id %}" style="text-decoration: none; color: black;">
+                <h3 class="event-title">{{event.eventname}}</h3>
+            </a>
+        </div>
+        <div class="venue">
+            <h3 class="mono">Event Date</h3>
+            <h3 class="event-title">{{event.date}}</h3>
+        </div>
+    </div>
+    {%endfor%}
+</div>
+{%endblock content%}

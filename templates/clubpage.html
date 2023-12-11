@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{%block title%}{{club.name}}{%endblock title%}
+
+{% block content %}
+<div>
+    <h1 class="py-4 text-center text-black">Name of the Club: {{club.name}}</h1>
+</div>
+
+<div class="container-fluid d-flex custom-height">
+    <div class="info-container custom-height w-50 bg-dark">
+        <h1 class="text-white text-center">Advisor: {{club.advisor}}</h1>
+    </div>
+    <table class="table table-striped w-50">
+        <thead>
+            <tr>
+                <th scope="col">Count</th>
+                <th scope="col">Name</th>
+                <th scope="col">Designation</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for member in members%}
+            <tr>
+                <th scope="row">{{forloop.counter}}</th>
+                <td>{{member.student.name}}</td>
+                <td>{{member.designation}}</td>
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

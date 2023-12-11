@@ -1,0 +1,72 @@
+{%extends 'base.html'%}
+{%load static%}
+{% block content %}
+<div class="container-fluid home-container h-auto py-4">
+    <div id="carouselExampleControls" class="carousel slide my-2" data-ride="carousel">
+        <div class="carousel-inner">
+            {% for highlight in highlights%}
+            <div class="carousel-item {% if forloop.counter is 1%}active {%endif%}">
+                <img class="d-block carousel-img" src="{{highlight.photo.url}}" alt="First slide">
+                <a href="{% url 'highlight_details' highlight.id %}"><h1 class="img-text">{{highlight.title}}</h1></a>
+            </div>
+            {%endfor%}
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </a>
+    </div>
+    <h4 class="text-white mono pb-1 mt-4"><strong>About Office of Co-curricular Activities (OCA)</strong></h4>
+    <p class="text-white w-50 mono" style="font-size: 16px;">Brac University believes in a holistic approach towards
+        education and grooming future leaders who will possess
+        high moral values, have empathy, more informed, scientific, and socially responsible alongside their academic
+        excellence. Brac University has established 27 clubs to nurture the students to be future leaders in alignment
+        with the vision of the institution. To supervise and support these club's activities, BracU created the Office
+        of Co-curricular Activities (OCA).
+
+        Office of Co-curricular Activities (OCA) is a hub to foster BracU students' complete learning experience and to
+        groom up the students in achieving the distinctive qualities of a real-life champion.
+
+        Through the whole year, the clubs remain engaged in their regular activities. Alongside they always contribute
+        to the university's central events and also work collaboratively with the various departments of the university.
+        The clubs of BracU respectfully participate and observe all national events. OCA always ensures that the club
+        events are designed integrating community services and social contributions towards ensuring sustainable future.
+    </p>
+    <br>
+    <h4 class="text-white mono"><strong>VISION</strong></h4>
+    <p class="text-white mono w-50" style="font-size: 16px;">
+        OCA believes in a holistic approach towards education and will work in grooming future leaders who will possess
+        high
+        moral, ethical and humane values, have empathy, will be socially responsible, committed to cultural and
+        patriotic
+        values; more informed and scientific alongside maintaining their academic excellence.
+    </p>
+    <br>
+    <h4 class="text-white mono"><strong>OBJECTIVES</strong></h4>
+    <ul>
+        <li class="text-white mono" style="font-size:16px;"> Create an environment for the spontaneous participation of
+            students in co-curricular and extra-curricular activities.</li>
+        <li class="text-white mono" style="font-size:16px;">Ensure each studentss participation in club activities.</li>
+        <li class="text-white mono" style="font-size:16px;">To provide a platform to nurture innovative ideas.</li>
+        <li class="text-white mono" style="font-size:16px;">Create future leaders and BracU Ambassadors from student
+            community.</li>
+        <li class="text-white mono" style="font-size:16px;">Create opportunities for measurable community service
+            activities.</li>
+        <li class="text-white mono" style="font-size:16px;">Create scope for value-adding intra and inter-university
+            events.</li>
+        <li class="text-white mono" style="font-size:16px;">Contribution in socially responsible activities.</li>
+        <li class="text-white mono" style="font-size:16px;">Mandate participation of club representatives in the central
+            and national level events.</li>
+        <li class="text-white mono" style="font-size:16px;">Scrutinize the scopes for attending value adding tours and
+            international events. Also provide help to ensure
+            their participation following due process.</li>
+        <li class="text-white mono" style="font-size:16px;">Create scope for value-adding intra and inter-university
+            events.</li>
+        <li class="text-white mono" style="font-size:16px;">Maintain data to measure community &amp; social impact of
+            the club activities and to prepare annual report.
+        </li>
+    </ul>
+</div>
+{% endblock content %}

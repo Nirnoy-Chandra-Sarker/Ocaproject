@@ -1,0 +1,33 @@
+{% extends 'base.html'%}
+<!-- {% load static %} -->
+
+{%block title%} Register {%endblock title%}
+
+
+{%block content%}
+<div class="container st-rgr custom-register-container ">
+    <h1 class="text-black mono py-2">Student Register</h1>
+    {% if messages %}
+    {% for message in messages %}
+    {% if message.tags %}<h4 class="bg-{{message.tags}} text-center py-2 border border-{{message.tags}} rounded">
+        {{message}}</h4>{% endif %}
+    {% endfor %}
+    {% endif %}
+    <form class="form-signin p-4 my-form" method="post" enctype="multipart/form-data" >
+        {%csrf_token%}
+        {{form.as_p}}
+        {% if form.errors %}
+        <div class="alert alert-danger">
+            <ul>
+                {% for field, errors in form.errors.items %}
+                {% for error in errors %}
+                <li> {{ error }}</li>
+                {% endfor %}
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+        <button type="submit" class="register-btn mt-3">Register</button>
+    </form>
+</div>
+{%endblock content%}

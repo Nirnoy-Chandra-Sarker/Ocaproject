@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{%block content%}
+{%if not clubs%}
+<h1 class="text-center bg-danger my-5 p-2 text-white">No club is Taking Member Now</h1>
+{%else%}
+<table class="table ">
+    <thead>
+        <tr>
+            <th scope="col">Count</th>
+            <th scope="col">Clubs</th>
+            <th scope="col">Request</th>
+        </tr>
+    </thead>
+    <tbody>
+        {%for club in clubs%}
+        <tr>
+            <th scope="row">{{forloop.counter}}</th>
+            <td>{{club.name}}</td>
+            <td><a href="#" class="btn btn-primary">Request</a></td>
+        </tr>
+        {%endfor%}
+    </tbody>
+</table>
+{%endif%}
+{%endblock content%}

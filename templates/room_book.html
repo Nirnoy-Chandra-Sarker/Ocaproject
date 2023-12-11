@@ -1,0 +1,17 @@
+{%extends 'base.html'%}
+
+{%block content%}
+<div class="bg-light p-5">
+    {% if messages %}
+    {% for message in messages %}
+    {% if message.tags %}<h4 class="bg-{{message.tags}} text-center py-2 border border-{{message.tags}} rounded">
+        {{message}}</h4>{% endif %}
+    {% endfor %}
+    {% endif %}
+    <form action="" method="post">
+        {%csrf_token%}
+        {{form.as_p}}
+        <button type="submit" class="btn btn-lg btn-outline-primary">Book</button>
+    </form>
+</div>
+{%endblock content%}

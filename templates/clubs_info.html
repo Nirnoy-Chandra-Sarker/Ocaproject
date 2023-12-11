@@ -1,0 +1,19 @@
+{%extends 'base.html' %}
+{%load static%}
+
+{% block content%}
+{%for club_info in clubs_info%}
+<div class="club-info-cards ">
+    <div class="club-info m-2">
+        <h1 class="club-name mono"><a style="text-decoration: none; color: black; font-size: 2rem;" href="{% url 'club-info' club_info.club.id %}">{{club_info.club.name}}</a></h1>
+        <p class="description mono mt-3" style="font-size: 0.9rem;">
+            {{club_info.description}}
+        </p>
+        <p class="mono text-warning" style="font-size: 1rem;">Contuct Us: {{club_info.contact_mail}}</p>
+    </div>
+    <div class="club-image w-25">
+        <img src="{{club_info.photo.url}}" alt="">
+    </div>
+</div>
+{%endfor%}
+{% endblock content%}

@@ -1,0 +1,26 @@
+.event-card{
+    background-color: white;
+    height: 20vh;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 30vw;
+    
+}
+
+.event-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.event-card:hover{
+    background-color: darkcyan;
+    color: white;
+    width: 30vw;
+}
+
+
+.info{
+    color:red;
+}

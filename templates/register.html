@@ -1,0 +1,50 @@
+{% extends 'base.html'%}
+<!-- {% load static %} -->
+
+{%block title%} Register {%endblock title%}
+
+
+{%block content%}
+<div class="container custom-register-container">
+    <h1 class="title">Sign Up</h1>
+    {% if messages %}
+    {% for message in messages %}
+    {% if message.tags %}<h4 class="bg-{{message.tags}} text-center py-2 border border-{{message.tags}} rounded">{{message}}</h4>{% endif %}
+    {% endfor %}
+    {% endif %}
+    <form class="form-signin" method="post">
+        {%csrf_token%}
+        <div class="text-center mb-4">
+            <div class="form-label-group">
+                <label class="text-white" for="inputEmail">Enter Your Name</label>
+                <input name="name" type="text" id="inputEmail" class="form-control" placeholder="Name" required
+                    autofocus>
+            </div>
+            <div class="form-label-group">
+                <label class="text-white" for="inputEmail">Enter Your Phone Number</label>
+                <input name="phone" type="text" id="inputEmail" class="form-control" placeholder="Phone Number" required
+                    autofocus>
+            </div>
+            <div class="form-label-group">
+                <label class="text-white" for="inputEmail">Enter Your G-Suit Email</label>
+                <input name="email" type="email" id="inputEmail" class="form-control" placeholder="Email address"
+                    required autofocus>
+            </div>
+
+            <div class="form-label-group">
+                <label class="text-white" for="inputPassword">Password</label>
+                <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password"
+                    required>
+            </div>
+
+            <div class="checkbox mb-3">
+                <label class="text-white">
+                    <input type="checkbox" value="remember-me"> Remember me
+                </label>
+            </div>
+            <button class="btn btn-lg btn-primary signinbtn" type="submit">Register</button>
+            <p class="mt-5 mb-3 text-muted text-center"></p>
+        </div>
+    </form>
+</div>
+{%endblock content%}

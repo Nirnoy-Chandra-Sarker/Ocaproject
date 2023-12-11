@@ -1,0 +1,42 @@
+{% extends 'base.html'%}
+
+{%block content%}
+<div class="container">
+    <h1 class="text-white text-center">{{event.eventname}}</h1>
+    <div class="text-white">
+        <div class="description my-4">
+            <h3>Description:</h3>
+            <h5>{{event.description}}</h5>
+        </div>
+        <div class="date">
+            <h2>Date: {{event.date }}</h2>
+        </div>
+        <div class="address my-4">
+            {%if room %}
+            <h2>Venue:</h2>
+            <h5>{{room.name}}</h5>
+            {%endif%}
+            {%if event.address %}
+            <h2>Address:</h2>
+            <h4>{{event.address}}</h4>
+            {%endif%}
+        </div>
+        <div class="sponsors">
+            <h3>Sponsors:</h3>
+            <ol>
+                {% for sponsor in sponsors%}
+                <h4>
+                    <a href="{{sponsor.url}}" target="_blank"><li>{{sponsor.title}} Sponsor {{sponsor.name}} </li></a>
+                </h4>
+                {%endfor%}
+            </ol>
+        </div>
+        <div class="url">
+            {% if event.enrollurl%}
+            <a href="{{event.enrollurl}}" target="_blank" class="btn btn-warning btn-lg">Join Now</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{%endblock content%}

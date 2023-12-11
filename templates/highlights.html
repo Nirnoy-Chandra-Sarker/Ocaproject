@@ -1,0 +1,17 @@
+{%extends 'base.html'%}
+
+{%block content%}
+<div class="container-fluid">
+    <h1 class="text-center text-white my-2">{{highlight.title}}</h1>
+    <div class="container d-flex justify-content-center my-2">
+        <img src="{{highlight.photo.url}}" alt="">
+    </div>
+    <div class="container text-white my-4">
+        <h5>{{highlight.description}}</h5>
+        {%if highlight.url%}
+        <a href="{{highlight.url}}" class="btn btn-lg btn-warning my-2" target="_blank">Join Now</a>
+        {%endif%}
+    </div>
+</div>
+
+{%endblock content%}
